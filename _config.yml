@@ -3,19 +3,23 @@ markdown:         redcarpet
 highlighter:      pygments
 
 # Permalinks
-permalink:        pretty
-relative_permalinks: true
+#permalink:        pretty
+permalink: /:year-:month-:day-:title/
+#relative_permalinks: true
+excerpt_separator: "<!--more-->"
+
+plugins:          [jekyll-paginate]
 
 # Setup
-title:            Hyde
-tagline:          'A Jekyll theme'
-description:      'A brazen two-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
-url:              http://hyde.getpoole.com
+title:            Alexei Kojenov
+tagline:          'Alexei Kojenov'
+description:      'Random thoughts on random things'
+url:              http://kojenov.com
 baseurl:          /
 
 author:
-  name:           'Mark Otto'
-  url:            https://twitter.com/mdo
+  name:           'Alexei Kojenov'
+  url:            https://twitter.com/kojenov
 
 paginate:         5
 
