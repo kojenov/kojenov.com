@@ -96,7 +96,7 @@ Panelists: Alexei Kojenov, Ian Melven, Benny Zhao, and Scott Cutler
 
 *15 May 2018*
 
-<!--[announcement](https://calagator.org/events/1250473733)-->
+<!--[announcement](https://www.meetup.com/PDXJUG/events/250603125/)-->
 
 Insecure deserialization is one of the most critical web application security risks, yet it is by no means a new vulnerability category. Data serialization and deserialization have been used widely in applications, services and frameworks, with many programming languages supporting them natively. Deserialization got more attention recently as a potential vehicle to conduct several types of attacks: data tampering, authentication bypass, privilege escalation, various injections and, finally, remote code execution. Two recent vulnerabilities in Apache Commons and Apache Struts, both allowing remote code execution, helped raise awareness of this risk.
 
