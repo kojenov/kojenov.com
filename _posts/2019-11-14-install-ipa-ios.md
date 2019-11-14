@@ -5,6 +5,8 @@ title: How to install IPA on an iOS device
 
 During a recent pentest, I needed to test an iOS app. Since the app was not in the App Store yet, it was given to me in the form of an .ipa file. I had to figure out a way to load it to my test iPhone. Apparently, there are several instructions on the Internet on how to do that, but I couldn't find the one that worked for me out of the box, so here is my own...
 
+<!--more-->
+
 ## Given
 
 1. An iOS app distributed as an IPA file.
