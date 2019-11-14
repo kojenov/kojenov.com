@@ -111,7 +111,7 @@ In the same directory, create `FairyTailes.plist` and use the identifier and ver
 </plist>
 ```
 
-On your iOS device, go to https://4c265f53.ngrok.io (make sure it's HTTPS, and do I need to say again you must use the **actual** ngrok address?) and click the *Download* link. Confirm the prompt to install the app. It should silently install and appear on your home screen, so go ahead to the home screen and click on your new shiny app.
+On your iOS device, go to https://4c265f53.ngrok.io/download.html (make sure it's HTTPS, and do I need to say again you must use the **actual** ngrok address?) and click the *Download* link. Confirm the prompt to install the app. It should silently install and appear on your home screen, so go ahead to the home screen and click on your new shiny app.
 
 Oh no, you get an error **Untrusted Enterprise Developer**, don't you? Don't worry, this is easy to fix:
 
