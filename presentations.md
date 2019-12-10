@@ -3,6 +3,7 @@ layout: page
 title: Presentations
 ---
 
+1. [HushCon Seattle 2019](#hushcon2019)
 1. [BSides PDX 2019](#bsidespdx2019)
 1. [Global AppSec AMS 2019](#globalappsec2019)
 1. [BSides PDX 2018](#bsidespdx2018)
@@ -15,6 +16,19 @@ title: Presentations
 1. [OWASP PDX Chapter Meeting June 2017](#owasppdxjune2017)
 
 ---
+
+### <a name="hushcon2019"></a> HushCon Seattle 2019
+
+#### [in]secure deserialization, and how [not] to do it
+
+*6 December 2019*
+
+<!--[announcement](http://hushcon.com/schedule.html)-->
+
+*Yes, the same talk presented the third time. More coming, LOL :)*
+
+---
+
 
 ### <a name="bsidespdx2019"></a> BSides PDX 2019
 
