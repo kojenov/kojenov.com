@@ -3,6 +3,7 @@ layout: page
 title: Presentations
 ---
 
+1. [AppSec Cali 2020](#appseccali2020)
 1. [HushCon Seattle 2019](#hushcon2019)
 1. [BSides PDX 2019](#bsidespdx2019)
 1. [Global AppSec AMS 2019](#globalappsec2019)
@@ -17,6 +18,18 @@ title: Presentations
 
 ---
 
+### <a name="appseccali2020"></a> AppSec Cali 2020
+
+#### [in]secure deserialization, and how [not] to do it
+
+*23 January 2020*
+
+<!--[announcement](https://sched.co/XLtq)-->
+
+*Yes, the same talk presented the fourth time :)*
+
+---
+
 ### <a name="hushcon2019"></a> HushCon Seattle 2019
 
 #### [in]secure deserialization, and how [not] to do it
@@ -25,7 +38,7 @@ title: Presentations
 
 <!--[announcement](http://hushcon.com/schedule.html)-->
 
-*Yes, the same talk presented the third time. More coming, LOL :)*
+*Yes, the same talk presented the third time :)*
 
 ---
 
