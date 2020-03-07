@@ -3,6 +3,7 @@ layout: page
 title: Presentations
 ---
 
+1. [BSides SF 2020](#bsidessf2020)
 1. [AppSec Cali 2020](#appseccali2020)
 1. [HushCon Seattle 2019](#hushcon2019)
 1. [BSides PDX 2019](#bsidespdx2019)
@@ -18,6 +19,18 @@ title: Presentations
 
 ---
 
+### <a name="bsidessf2020"></a> BSides SF 2020
+
+#### Break crypto like a pro!
+
+*23 February 2020*
+
+<!--[announcement](https://sched.co/Ybgu)-->
+
+Cryptography is hard. Doing it right is even harder, and Murphy’s law continues to prove true: “If there is a wrong way to do something, then someone will do it.” Come learn how to exploit common crypto mistakes in theory and in practice! 
+
+---
+
 ### <a name="appseccali2020"></a> AppSec Cali 2020
 
 #### [in]secure deserialization, and how [not] to do it
@@ -25,6 +38,7 @@ title: Presentations
 *23 January 2020*
 
 <!--[announcement](https://sched.co/XLtq)-->
+[recording](https://youtu.be/IE8o58XT9Co)
 
 *Yes, the same talk presented the fourth time :)*
 
