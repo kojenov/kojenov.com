@@ -7,5 +7,4 @@ Note to myself:
 bundle init
 bundle add jekyll jekyll-paginate
 bundle exec jekyll serve
-
 ```
