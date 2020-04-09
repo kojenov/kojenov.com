@@ -39,3 +39,8 @@ validation-report.json
 
 # Folders to ignore
 node_modules
+
+# Jekyll
+.jekyll-cache
+Gemfile
+Gemfile.lock
