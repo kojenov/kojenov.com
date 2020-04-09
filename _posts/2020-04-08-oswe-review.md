@@ -1,6 +1,8 @@
 ---
 layout: post
 title: OSWE review
+image: /assets/2020-04-08-oswe-review/oswe-pass.jpg
+summary: Thoughts on AWAE training course and OSWE certification exam
 ---
 
 Ten days ago, I’ve made my first attempt at [OSWE certification](https://www.offensive-security.com/awae-oswe/#cert), and today I received the official confirmation:

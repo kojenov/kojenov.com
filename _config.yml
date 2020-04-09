@@ -13,6 +13,7 @@ tagline:          'Alexei Kojenov'
 description:      'Random thoughts on random things'
 url:              http://kojenov.com
 baseurl:          /
+twitter_name:     kojenov
 
 author:
   name:           'Alexei Kojenov'
