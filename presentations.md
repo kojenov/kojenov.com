@@ -3,6 +3,8 @@ layout: page
 title: Presentations
 ---
 
+1. [OWASP Orange County Meetup May 2020](#owaspocmay2020)
+1. [OWASP PDX Meetup May 2020](#owasppdxmay2020)
 1. [BSides SF 2020](#bsidessf2020)
 1. [AppSec Cali 2020](#appseccali2020)
 1. [HushCon Seattle 2019](#hushcon2019)
@@ -19,6 +21,39 @@ title: Presentations
 
 ---
 
+### <a name="owaspocmay2020"></a> OWASP Orange County Meetup May 2020
+
+#### Yes, you too can break crypto: Exploiting common crypto mistakes
+
+*28 May 2020*
+
+<!--[announcement](https://www.meetup.com/OWASP-OC/events/270500510/)-->
+[recording](https://www.twitch.tv/videos/635070437)
+
+Cryptography is tricky. Sure, everybody knows not to roll out their own crypto, but is it enough? Are the standard algorithms, libraries, and utilities always used the right way? This is of course a rhetorical question! Humans keep making mistakes that other humans can exploit, and Murphy’s law continues to prove true: “If there is a wrong way to do something, then someone will do it.”
+
+In this talk, not only will we discuss what can go wrong, but also how attackers could take advantage of that. Insufficient entropy? Static initialization vector? Key reuse in stream cipher? Lack of ciphertext integrity? We’ve heard these terms and may be familiar with them in theory, but let’s see actual examples of these and other crypto mistakes and corresponding exploits, and understand how they could lead to real life problems.
+
+Are you not on a red team and not interested in exploitation? Then this talk is for you too! Come and learn how to avoid common crypto mistakes in your code!
+
+---
+
+### <a name="owasppdxmay2020"></a> OWASP PDX Meetup May 2020
+
+#### Yes, you too can break crypto: Exploiting common crypto mistakes
+
+*21 May 2020*
+
+<!--[announcement](https://www.meetup.com/OWASP-Portland-Chapter/events/270404725/)-->
+
+Cryptography is tricky. Sure, everybody knows not to roll out their own crypto, but is it enough? Are the standard algorithms, libraries, and utilities always used the right way? This is of course a rhetorical question! Humans keep making mistakes that other humans can exploit, and Murphy’s law continues to prove true: "If there is a wrong way to do something, then someone will do it."
+
+In this talk, not only will we discuss what can go wrong, but also how attackers could take advantage of that. Insufficient entropy? Static initialization vector? Key reuse in stream cipher? Lack of ciphertext integrity? We’ve heard these terms and may be familiar with them in theory, but let’s see actual examples of these and other crypto mistakes and corresponding exploits, and understand how they could lead to real life problems.
+
+Are you not on an offensive team and not interested in exploitation? Then this talk is for you too! Come and learn how to avoid common crypto mistakes in your code!
+
+---
+
 ### <a name="bsidessf2020"></a> BSides SF 2020
 
 #### Break crypto like a pro!
@@ -26,6 +61,7 @@ title: Presentations
 *23 February 2020*
 
 <!--[announcement](https://sched.co/Ybgu)-->
+[recording](https://youtu.be/lRk-YWBHoNg)
 
 Cryptography is hard. Doing it right is even harder, and Murphy’s law continues to prove true: “If there is a wrong way to do something, then someone will do it.” Come learn how to exploit common crypto mistakes in theory and in practice! 
 
