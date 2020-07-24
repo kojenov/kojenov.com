@@ -15,7 +15,7 @@ title: Presentations
 1. [OWASP PDX Chapter Meeting May 2018](#owasppdxmay2018)
 1. [Portland Java User Group May 2018](#pjugmay2018)
 1. [OWASP PDX Chapter Meeting April 2018](#owasppdxapril2018)
-1. [BSides PDX 2017](#bsidespdx2018)
+1. [BSides PDX 2017](#bsidespdx2017)
 1. [Portland ISSA Meeting September 2017](#issaseptember2017)
 1. [OWASP PDX Chapter Meeting June 2017](#owasppdxjune2017)
 
