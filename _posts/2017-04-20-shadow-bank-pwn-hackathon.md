@@ -18,6 +18,8 @@ We used this opportunity to find and exploit more vulnerabilities in the applica
 
 <!--more-->
 
+* TOC
+{:toc}
 
 ## Background
 
