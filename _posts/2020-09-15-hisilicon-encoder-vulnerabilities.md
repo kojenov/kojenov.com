@@ -30,6 +30,8 @@ The following vulnerabilities were identified:
 * Medium
     * Unauthorized RTSP video stream access (CVE-2020-24216)
 
+See [CERT/CC vulnerability note VU#896979](https://www.kb.cert.org/vuls/id/896979)
+    
 During my research I had physical access to several devices from the following vendors: [URayTech](http://szuray.com/), [J-Tech Digital](https://jtechdigital.com/product/jtech-ench4-0220/), and [Pro Video Instruments](https://www.provideoinstruments.com/iptv-encoders). I performed my research initially on URayTech, then confirmed vulnerabilities in the other two vendors.
 
 There is at least a dozen of different vendors that manufacture and sell very similar devices. By analyzing product documentation and firmware update packages, I’ve got a high level of confidence those devices were also affected by most, if not all, vulnerabilities listed here. Here is an [incomplete] list of these additional vendors: [_Network Technologies Incorporated (NTI)_](http://www.networktechinc.com/h264-hdmi-encoder.html), [_Oupree_](https://www.oupree.com/IP-Video-Encoder-Decoder/), [_MINE Technology_](http://www.szmine.com/Video_Encoder/), [_Blankom_](https://www.blankom.de/products/irenis-ip-encoder-streamer/), [_ISEEVY_](https://www.iseevy.com/product-category/video-encoder/), [_Orivision_](https://www.orivision.com.cn/c/h264-hdmi-encoder_0017), [WorldKast/procoder](https://www.procoderhd.com/), [Digicast](http://www.digicast.cn/en/product.asp?pType=222)
