@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Software vulnerabilities in HiSilicon based hardware video encoders
+title: Backdoors and other vulnerabilities in HiSilicon based hardware video encoders
 image: /assets/2020-09-15-encoders/010-title-bug.png
 summary: Serious vulnerabilities (including a backdoor) in IPTV/H.264/H.265 video encoders based on HiSilicon hi3520d hardware.
 ---
@@ -49,7 +49,7 @@ Security research on HiSilicon devices has been done in the past. Here are some 
 * [HiSilicon DVR hack](https://github.com/tothi/pwn-hisilicon-dvr) by Istvan Toth, 2017. This research targeted DVR/NVR devices, and uncovered a root shell access with elevated privileges, a backdoor password, a file disclosure via path traversal, and an exploitable buffer overflow.
 * [Full disclosure: 0day vulnerability (backdoor) in firmware for Xiaongmai-based DVRs, NVRs and IP cameras](https://habr.com/en/post/486856/) by Vladislav Yarmak. This research uncovered a very interesting "port knocking" backdoor allowing a remote attacker to start the telnet, and then log in with one of the several known passwords.
 
-While the streaming video encoders may share the same hardware architecture and the underlying Linux system with the above devices, my research targets the** ****admin web application specific to the video encoders** and does not overlap with the prior work.
+While the streaming video encoders may share the same hardware architecture and the underlying Linux system with the above devices, my research targets the **admin web application specific to the video encoders** and does not overlap with the prior work.
 
 
 ## Hardware
@@ -264,6 +264,8 @@ The firmware includes `passwd` file which is a standard Linux password file:
 $ cat passwd 
 root:9yVwSCpfKcYJg:0:0::/root:/bin/sh
 ```
+
+***Update 2020-09-16:*** Thanks to [Vladislav Yarmak](https://twitter.com/snawoot) for quickly brute forcing this hash. The original password appears to be `newsheen`.
 
 My initial thought was to crack the password by conventional means, but after thinking about it I had a better idea. The password file is copied to the system by the `run` script, right before the main application is launched:
 
@@ -942,6 +944,7 @@ Welcome to HiLinux.
 ~ # 
 ```
 
+***Update 2020-09-16:*** Some versions of URayTech firmware set the root password to `newsheen` (thanks to [Vladislav Yarmak](https://twitter.com/snawoot))
 
 
 ### Arbitrary file disclosure via path traversal (CVE-2020-24219)
