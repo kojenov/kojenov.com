@@ -191,4 +191,6 @@ Most importantly, this exercise shows the risk of the recent Struts vulnerabilit
 
 Alex and I [presented this at BSides PDX](https://bsidespdx.org/events/2017/speakers.html#AlexeiKojenovAlexIvkin) on October 21, 2017. Here is a video of the presentation:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ZWOXkKfflcE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="video-container">
+<iframe class="video" src="https://www.youtube.com/embed/ZWOXkKfflcE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>

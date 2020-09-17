@@ -1336,8 +1336,9 @@ When we hear the term *application security*, we don’t necessarily think of a 
 
 ## Exploit demos
 
-<iframe width="640" height="360" src="https://www.youtube.com/embed/JndkJEnc8Fo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+<div class="video-container">
+<iframe class="video" src="https://www.youtube.com/embed/JndkJEnc8Fo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 ## Links
 
