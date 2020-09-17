@@ -1325,6 +1325,12 @@ At the time of this publication, most vendors have not issued firmware updates t
 
 This research demonstrates a number of application vulnerabilities in devices from multiple vendors. These devices are based on the same hardware platform and share the same software API. While most vulnerabilities seem unintentional (i.e. coding mistakes), one of them stands out. The hardcoded password is a deliberate backdoor. Chinese companies such as Huawei are known for backdooring their products (and even [trying to explain how backdoors are good](https://youtu.be/K3Hdm3q65qs)), so it is not a surprise their HiSilicon video encoders are backdoored as well.
 
+---
+
+**Update 2020-09-17:** Huawei [issued a statement](https://www.huawei.com/en/psirt/security-notices/2020/huawei-sn-20200917-01-hisilicon-en) saying that none of the vulnerabilities have been introduced by HiSilicon chips and SDK packages. I will update this article as more information comes in.
+
+---
+
 When we hear the term *application security*, we don’t necessarily think of a little device with some specialized hardware-based functionality. Likewise, the term *internet of things* does not usually make us think about application security. However, there is a huge overlap between AppSec and IoT. Virtually every device runs some kind of an operating system and some kind of custom code. Many of them listen on ports. Many allow administrative access. And unfortunately, the engineering teams behind these devices do not pay enough attention to security considerations around the software. As a result, flaws creep in, making the device owners vulnerable to many kinds of attacks. Complex supply chains and inadequate support make these vulnerabilities difficult to address. We will continue to see these bugs in all kinds of connected devices for the foreseeable future, but more published research will hopefully increase awareness and make the vendors take application security more seriously.
 
 
