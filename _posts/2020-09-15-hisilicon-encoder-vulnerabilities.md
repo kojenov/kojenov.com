@@ -7,6 +7,12 @@ summary: Serious vulnerabilities (including a backdoor) in IPTV/H.264/H.265 vide
 
 ![bug](/assets/2020-09-15-encoders/010-title-bug.png)
 
+---
+
+**Update 2020-09-17:** Huawei [issued a statement](https://www.huawei.com/en/psirt/security-notices/2020/huawei-sn-20200917-01-hisilicon-en) saying that none of the vulnerabilities have been introduced by HiSilicon chips and SDK packages. I will update this article as more information comes in.
+
+---
+
 This article discloses critical vulnerabilities in IPTV/H.264/H.265 video encoders based on HiSilicon hi3520d hardware. The vulnerabilities exist in the application software running on these devices. All vulnerabilities are exploitable remotely and can lead to sensitive information exposure, denial of service, and remote code execution resulting in full takeover of the device. With multiple vendors affected, and no complete fixes at the time of the publication, these encoders should only be used on fully trusted networks behind firewalls. I hope that my detailed write-up serves as a guide for more security research in the IoT world.
 
 <!--more-->
