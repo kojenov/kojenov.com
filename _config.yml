@@ -10,7 +10,7 @@ plugins:          [jekyll-paginate]
 # Setup
 title:            Alexei Kojenov
 tagline:          'Alexei Kojenov'
-description:      'Random thoughts on random things'
+description:      '# cat /dev/random'
 url:              http://kojenov.com
 baseurl:          /
 twitter_name:     kojenov
