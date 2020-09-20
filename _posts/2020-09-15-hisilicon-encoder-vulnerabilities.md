@@ -271,7 +271,7 @@ $ cat passwd
 root:9yVwSCpfKcYJg:0:0::/root:/bin/sh
 ```
 
-***Update 2020-09-16:*** Thanks to [Vladislav Yarmak](https://twitter.com/snawoot) for quickly brute forcing this hash. The original password appears to be `newsheen`.
+***Update 2020-09-16:*** *Thanks to [Vladislav Yarmak](https://twitter.com/snawoot) for quickly brute forcing this hash. The original password appears to be `newsheen`.*
 
 My initial thought was to crack the password by conventional means, but after thinking about it I had a better idea. The password file is copied to the system by the `run` script, right before the main application is launched:
 
@@ -1355,9 +1355,11 @@ Although exploitations are trivial, I wrote and posted [scripts on GitHub](https
 * [Exploit scripts](https://github.com/kojenov/hisilicon-iptv-exploits)
 * CVE ids: [CVE-2020-24214](http://web.nvd.nist.gov/view/vuln/detail?vulnId=2020-24214) [CVE-2020-24215](http://web.nvd.nist.gov/view/vuln/detail?vulnId=2020-24215) [CVE-2020-24216](http://web.nvd.nist.gov/view/vuln/detail?vulnId=2020-24216) [CVE-2020-24217](http://web.nvd.nist.gov/view/vuln/detail?vulnId=2020-24217) [CVE-2020-24218](http://web.nvd.nist.gov/view/vuln/detail?vulnId=2020-24218) [CVE-2020-24219](http://web.nvd.nist.gov/view/vuln/detail?vulnId=2020-24219)
 
-**Update 2020-09-17:** Added the link to Huawei's public statement
-
 **Update 2020-09-20:** Posted exploit scripts on GitHub
+
+**Update 2020-09-17:** Added info on Huawei's public statement
+
+**Update 2020-09-16:** Brute forced one of firmware's password
 
 *Credits: the [bug image](https://thenounproject.com/term/bug/198/) by Edward Boatman from Noun Project*
 
