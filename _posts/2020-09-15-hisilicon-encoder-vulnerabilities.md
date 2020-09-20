@@ -1340,11 +1340,24 @@ When we hear the term *application security*, we don’t necessarily think of a 
 <iframe class="video" src="https://www.youtube.com/embed/JndkJEnc8Fo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
+## Exploit scripts
+
+Although exploitations are trivial, I wrote and posted [scripts on GitHub](https://github.com/kojenov/hisilicon-iptv-exploits) for:
+- full admin access via backdoor password (CVE-2020-24215)
+- arbitrary file disclosure via path traversal (CVE-2020-24219)
+- RCE via upload of malicious firmware (CVE-2020-24217)
+- RCE via command injection (CVE-2020-24217)
+- RTSP buffer overflow DoS (CVE-2020-24214)
+
 ## Links
 
 * [CERT/CC vulnerability note VU#896979](https://www.kb.cert.org/vuls/id/896979)
+* [Exploit scripts](https://github.com/kojenov/hisilicon-iptv-exploits)
 * CVE ids: [CVE-2020-24214](http://web.nvd.nist.gov/view/vuln/detail?vulnId=2020-24214) [CVE-2020-24215](http://web.nvd.nist.gov/view/vuln/detail?vulnId=2020-24215) [CVE-2020-24216](http://web.nvd.nist.gov/view/vuln/detail?vulnId=2020-24216) [CVE-2020-24217](http://web.nvd.nist.gov/view/vuln/detail?vulnId=2020-24217) [CVE-2020-24218](http://web.nvd.nist.gov/view/vuln/detail?vulnId=2020-24218) [CVE-2020-24219](http://web.nvd.nist.gov/view/vuln/detail?vulnId=2020-24219)
 
+**Update 2020-09-17:** Added the link to Huawei's public statement
+
+**Update 2020-09-20:** Posted exploit scripts on GitHub
 
 *Credits: the [bug image](https://thenounproject.com/term/bug/198/) by Edward Boatman from Noun Project*
 
