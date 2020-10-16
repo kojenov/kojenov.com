@@ -7,13 +7,7 @@ summary: Serious vulnerabilities (including a backdoor) in IPTV/H.264/H.265 vide
 
 ![bug](/assets/2020-09-15-encoders/010-title-bug.png)
 
----
-
-**Update 2020-09-17:** Huawei [issued a statement](https://www.huawei.com/en/psirt/security-notices/2020/huawei-sn-20200917-01-hisilicon-en) saying that none of the vulnerabilities have been introduced by HiSilicon chips and SDK packages. I will update this article as more information comes in.
-
----
-
-This article discloses critical vulnerabilities in IPTV/H.264/H.265 video encoders based on HiSilicon hi3520d hardware. The vulnerabilities exist in the application software running on these devices. All vulnerabilities are exploitable remotely and can lead to sensitive information exposure, denial of service, and remote code execution resulting in full takeover of the device. With multiple vendors affected, and no complete fixes at the time of the publication, these encoders should only be used on fully trusted networks behind firewalls. I hope that my detailed write-up serves as a guide for more security research in the IoT world.
+This article discloses critical vulnerabilities in IPTV/H.264/H.265 video encoders based on HiSilicon hi3520d hardware. The vulnerabilities exist in vendor application software running on these devices. All vulnerabilities are exploitable remotely and can lead to sensitive information exposure, denial of service, and remote code execution resulting in full takeover of the device. With multiple vendors affected, and no complete fixes at the time of the publication, these encoders should only be used on fully trusted networks behind firewalls. I hope that my detailed write-up serves as a guide for more security research in the IoT world.
 
 <!--more-->
 
@@ -270,8 +264,6 @@ The firmware includes `passwd` file which is a standard Linux password file:
 $ cat passwd 
 root:9yVwSCpfKcYJg:0:0::/root:/bin/sh
 ```
-
-***Update 2020-09-16:*** *Thanks to [Vladislav Yarmak](https://twitter.com/snawoot) for quickly brute forcing this hash. The original password appears to be `newsheen`.*
 
 My initial thought was to crack the password by conventional means, but after thinking about it I had a better idea. The password file is copied to the system by the `run` script, right before the main application is launched:
 
@@ -936,7 +928,7 @@ response
 
 ### root access via telnet (CVE-2020-24218)
 
-The telnet daemon is running on the device by default, and there is no way to disable it via the official admin web interface. It appears that on some devices (in particular, from URayTech) the above backdoor password is also set as the Linux root password, and remote login via telnet is possible. Furthermore, the password file format (crypt) only supports strings up to 8 characters, so instead of `neworange88888888`, one can just use `neworang`:
+The telnet daemon is running on the device by default, and there is no way to disable it via the official admin web interface. It appears that on some devices the above backdoor password is also set as the Linux root password, and remote login via telnet is possible. Furthermore, the password file format (crypt) only supports strings up to 8 characters, so instead of `neworange88888888`, one can just use `neworang`:
 
 ```
 $ telnet uray
@@ -950,7 +942,26 @@ Welcome to HiLinux.
 ~ # 
 ```
 
-***Update 2020-09-16:*** Some versions of URayTech firmware set the root password to `newsheen` (thanks to [Vladislav Yarmak](https://twitter.com/snawoot))
+Some versions of URayTech firmware had the following password hash which corresponded to `newsheen`:
+```
+root:9yVwSCpfKcYJg:0:0::/root:/bin/sh
+```
+
+J-Tech firmware had this which corresponded to `neworangetech`:
+```
+root:$1$/5bWggz/$JkbAnqFTv7HwEWr3DFJiC0:0:0::/root:/bin/sh
+```
+
+Many thanks to [Vladislav Yarmak](https://twitter.com/snawoot) who cracked these hashes!
+
+In conclusion, these video encoders may be accessible via telnet with one of the following passwords:
+```
+neworange88888888
+neworang
+newsheen
+neworangetech
+```
+
 
 
 ### Arbitrary file disclosure via path traversal (CVE-2020-24219)
@@ -1316,31 +1327,25 @@ I reported my findings to [CERT Coordination Center](https://www.kb.cert.org/vul
 Many thanks to Vijay Sarvepalli from CERT/CC for managing and coordinating the disclosure process!
 
 
+### Reaction
+
+Shortly after the initial publication of this article and [VU#896979](https://www.kb.cert.org/vuls/id/896979), **Huawei** published a [security notice](https://www.huawei.com/en/psirt/security-notices/2020/huawei-sn-20200917-01-hisilicon-en) explaining the sources of the software components in the encoders. They basically stated they were not responsible for the buggy application which was developed by a downstream vendor.
+
+This downstream vendor happens to be a company called **New Orange** ([site 1](http://neworange.cn.trustexporter.com/), [site 2](http://new-orange.com/cn/)) which explains why the backdoor password is what it is. New Orange did not plan to issue a public statement, but their largest vendor **Oupree** did publish a [security advisory](https://www.oupree.com/News/Security-Advisory-Vulnerability-of-Video-Encoder.html). They claimed all the security issues have been fixed. I have not yet obtained a fixed firmware to validate the fixes.
+
+
 ### Remediation
 
 At the time of this publication, most vendors have not issued firmware updates to address the reported vulnerabilities. If you own one of these encoders, contact your vendor and ask for a fix. If a firmware update is available, ask the vendor to confirm whether *all vulnerabilities* have been fixed. If the fix is unavailable, or is partial, make sure the device is on a trusted network, no ports are exposed externally, and firewall rules block untrusted users from accessing the device.
 
 
-## Conclusion
 
-This research demonstrates a number of application vulnerabilities in devices from multiple vendors. These devices are based on the same hardware platform and share the same software API. While most vulnerabilities seem unintentional (i.e. coding mistakes), one of them stands out. The hardcoded password is a deliberate backdoor. Chinese companies such as Huawei are known for backdooring their products (and even [trying to explain how backdoors are good](https://youtu.be/K3Hdm3q65qs)), so it is not a surprise their HiSilicon video encoders are backdoored as well.
-
----
-
-**Update 2020-09-17:** Huawei [issued a statement](https://www.huawei.com/en/psirt/security-notices/2020/huawei-sn-20200917-01-hisilicon-en) saying that none of the vulnerabilities have been introduced by HiSilicon chips and SDK packages. I will update this article as more information comes in.
-
----
-
-When we hear the term *application security*, we don’t necessarily think of a little device with some specialized hardware-based functionality. Likewise, the term *internet of things* does not usually make us think about application security. However, there is a huge overlap between AppSec and IoT. Virtually every device runs some kind of an operating system and some kind of custom code. Many of them listen on ports. Many allow administrative access. And unfortunately, the engineering teams behind these devices do not pay enough attention to security considerations around the software. As a result, flaws creep in, making the device owners vulnerable to many kinds of attacks. Complex supply chains and inadequate support make these vulnerabilities difficult to address. We will continue to see these bugs in all kinds of connected devices for the foreseeable future, but more published research will hopefully increase awareness and make the vendors take application security more seriously.
-
-
-## Exploit demos
+## Exploits
 
 <div class="video-container">
 <iframe class="video" src="https://www.youtube.com/embed/JndkJEnc8Fo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+</div><br/>
 
-## Exploit scripts
 
 Although exploitations are trivial, I wrote and posted [scripts on GitHub](https://github.com/kojenov/hisilicon-iptv-exploits) for:
 - full admin access via backdoor password (CVE-2020-24215)
@@ -1349,17 +1354,38 @@ Although exploitations are trivial, I wrote and posted [scripts on GitHub](https
 - RCE via command injection (CVE-2020-24217)
 - RTSP buffer overflow DoS (CVE-2020-24214)
 
+## Conclusion
+
+This research demonstrates a number of application vulnerabilities in devices from multiple vendors. These devices are based on the same hardware platform and share the same software API. While most vulnerabilities seem unintentional (i.e. coding mistakes), one of them stands out. The hardcoded password is an intentional backdoor, and cannot be explained by sloppy coding or lack of security expertise.
+
+When we hear the term *application security*, we don’t necessarily think of a little device with some specialized hardware-based functionality. Likewise, the term *internet of things* does not usually make us think about application security. However, there is a huge overlap between AppSec and IoT. Virtually every device runs some kind of an operating system and some kind of custom code. Many of them listen on ports. Many allow administrative access. And unfortunately, the engineering teams behind these devices do not pay enough attention to security considerations around the software. As a result, flaws creep in, making the device owners vulnerable to many kinds of attacks. Complex supply chains and inadequate support make these vulnerabilities difficult to address. We will continue to see these bugs in all kinds of connected devices for the foreseeable future, but more published research will hopefully increase awareness and make the vendors take application security more seriously.
+
+
 ## Links
 
 * [CERT/CC vulnerability note VU#896979](https://www.kb.cert.org/vuls/id/896979)
+* [The Register article](https://www.theregister.com/2020/09/17/huawei_iptv_video_encoder_security/)
+* [Huawei's security notice](https://www.huawei.com/en/psirt/security-notices/2020/huawei-sn-20200917-01-hisilicon-en)
+* [Oupree's security advisory](https://www.oupree.com/News/Security-Advisory-Vulnerability-of-Video-Encoder.html)
 * [Exploit scripts](https://github.com/kojenov/hisilicon-iptv-exploits)
-* CVE ids: [CVE-2020-24214](http://web.nvd.nist.gov/view/vuln/detail?vulnId=2020-24214) [CVE-2020-24215](http://web.nvd.nist.gov/view/vuln/detail?vulnId=2020-24215) [CVE-2020-24216](http://web.nvd.nist.gov/view/vuln/detail?vulnId=2020-24216) [CVE-2020-24217](http://web.nvd.nist.gov/view/vuln/detail?vulnId=2020-24217) [CVE-2020-24218](http://web.nvd.nist.gov/view/vuln/detail?vulnId=2020-24218) [CVE-2020-24219](http://web.nvd.nist.gov/view/vuln/detail?vulnId=2020-24219)
+* CVE ids
+  * [CVE-2020-24214](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-24214)
+  * [CVE-2020-24215](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-24215)
+  * [CVE-2020-24216](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-24216)
+  * [CVE-2020-24217](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-24217)
+  * [CVE-2020-24218](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-24218)
+  * [CVE-2020-24219](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-24219)
 
-**Update 2020-09-20:** Posted exploit scripts on GitHub
+  
+  
+## Updates
 
-**Update 2020-09-17:** Added info on Huawei's public statement
+* **2020-09-16:** cracked one of firmware's password
+* **2020-09-17:** Huawei's public statement
+* **2020-09-20:** posted exploit scripts on GitHub
+* **2020-10-16:** added [Reaction](#reaction) section; more links; another cracked password
 
-**Update 2020-09-16:** Brute forced one of firmware's password
+
 
 *Credits: the [bug image](https://thenounproject.com/term/bug/198/) by Edward Boatman from Noun Project*
 
